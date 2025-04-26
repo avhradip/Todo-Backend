@@ -9,7 +9,7 @@ exports.createTodo = async (req, res) => {
         await NewTodo.save()
         res.status(201).json(NewTodo)
     } catch (error) {
-        res.status(500).json({ message: 'Error creating todo', error })
+        res.status(500).json({ message: 'Error to creating todo', error })
     }
 
 }
