@@ -4,6 +4,7 @@ const port = 8080
 const path = require('path')
 const cnnockerDb = require('./config/db')
 const todoRoute = require('./routes/todo.js')
+const userRouter = require('./routes/user.js')
 const cors = require('cors')
 cnnockerDb()
 
@@ -11,11 +12,12 @@ app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
 app.use(express.static(__dirname))
-// app.get('/', (req, res) => {
-//     res.json({
-//         message:'server is running'
-//     })
-// })
+
+app.get('/', (req, res) => {
+    res.json({
+        message:'server is running'
+    })
+})
 
 // app.get('/newone', (req, res) => {
 //     res.json({
@@ -28,6 +30,7 @@ app.use(express.static(__dirname))
 // })
 
 app.use('/todo', todoRoute)
+app.use('/user',userRouter)
 
 
 app.listen(port, () => {
