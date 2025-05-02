@@ -4,11 +4,13 @@ const userSchima = mongoose.Schema({
     name: {
         type: String,
         required: true,
+
         trim: true
     },
     email: {
         type: String,
         required: true,
+        unique: true,
         trim: true
     },
     number: {
@@ -22,7 +24,11 @@ const userSchima = mongoose.Schema({
     },
     confirmPassword: {
         type: String,
+    },
+    profilePic: {
+        type: String,
+        require: true
     }
 })
 
-module.exports=mongoose.model('user',userSchima)
+module.exports = mongoose.model('user', userSchima)
